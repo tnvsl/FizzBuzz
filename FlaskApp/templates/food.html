@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #c988ba;
+            color: white;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p, a {
+            font-size: 24px;
+        }
+
+        a {
+            color: rgb(4, 4, 4);
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+
+        <p>{{ text }}</p>
+
+
+        {% if choices %}
+
+            <p>What do you choose?</p>
+
+            <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                    <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            
+            <p>Bon appetit!</p>
+
+
+            <p><a href="{{url_for('start')}}">Actually, I want something else</a></p>
+        {% endif %}
+
+
+    </div>
+</body>
+
+</html>
