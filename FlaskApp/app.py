@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -14,6 +14,7 @@ def start():
         ('fish',"fish"),
         ('vegetables',"vegetables")
     ]
+
 
     return render_template('food.html', title=title, text=text, choices=choices)
 
@@ -45,9 +46,11 @@ Step 3
 Let rest 5 minutes before thinly slicing against the grain.
 """
 
+    picture_url = url_for('static',filename='steak.png')
+
     choices = []
 
-    return render_template('food.html', title=title, text=text, choices=choices)
+    return render_template('food.html', title=title, text=text, choices=choices, picture_url=picture_url)
 
 @app.route("/meatballs")
 def meatballs():
@@ -78,10 +81,11 @@ In large bowl, mix all ingredients. Shape mixture into 24 (1 1/2-inch) meatballs
 3
 Bake uncovered 18 to 22 minutes or until temperature reaches 160°F and no longer pink in center.
 """
+    picture_url = url_for('static',filename='meatballs.png')
 
     choices = []
 
-    return render_template('food.html', title=title, text=text, choices=choices)
+    return render_template('food.html', title=title, text=text, choices=choices, picture_url=picture_url)
 
 
 
@@ -122,10 +126,11 @@ Meanwhile, heat the remaining oil in a frying pan over a medium heat. Add the le
 STEP 3
 Heat the grill to high. Pour the creamy leek mixture over the potatoes, then sit the salmon fillets on top. Grill for 7-8 mins, or until just cooked through. Serve topped with extra chives and capers and a salad on the side, if you like.
 """
+    picture_url = url_for('static',filename='salmon.png')
 
     choices = []
 
-    return render_template('food.html', title=title, text=text, choices=choices)
+    return render_template('food.html', title=title, text=text, choices=choices, picture_url=picture_url)
 
 @app.route("/chowder")
 def chowder():
@@ -159,9 +164,11 @@ STEP 4
 Tip the fish pie mix into the pan, gently simmer for 4 mins. Add the cream and shellfish, then simmer for 1 min more. Check the seasoning. Sprinkle with the parsley and serve with some crusty bread.
 """
 
+    picture_url = url_for('static',filename='chowder.png')
+    
     choices = []
 
-    return render_template('food.html', title=title, text=text, choices=choices)
+    return render_template('food.html', title=title, text=text, choices=choices, picture_url=picture_url)
 
 @app.route("/vegetables")
 def vegetables():
@@ -203,10 +210,11 @@ Serve! Tossed with the pasta of your choice. If you don’t need it to be comple
 
 
 """
+    picture_url = url_for('static',filename='bolognese.png')
 
     choices = []
 
-    return render_template('food.html', title=title, text=text, choices=choices)
+    return render_template('food.html', title=title, text=text, choices=choices, picture_url=picture_url)
 
 @app.route("/soup")
 def soup():
@@ -229,7 +237,8 @@ Pour in everything else and bring the pot of soup to a boil.
 Turn it to a low simmer and cover the pot. Simmer for about half an hour, until the vegetables are super tender and it looks like vegetable soup you’d like to eat!
 Eat! We like to serve it topped with lots of freshly grated Parmigiano and fresh basil.
 """
+    picture_url = url_for('static',filename='soup.png')
 
     choices = []
 
-    return render_template('food.html', title=title, text=text, choices=choices)
+    return render_template('food.html', title=title, text=text, choices=choices, picture_url=picture_url)
