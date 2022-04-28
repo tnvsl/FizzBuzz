@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+    <h1>Dictionary</h1>
+
+    {% if letter != '' %}
+    
+    <h2>
+        {% if is_word == True %}
+            {{letter}} is a real word!!
+        {% else %}
+            {{letter}} isn't a real word!!
+        {% endif %}
+    </h2>
+
+    <p> {{wordlen}} words with prefix {{l}}</p>
+
+    {% endif %}
+
+    <ul>
+        {% for l in words %}
+        <li>
+            <a href ='{{ url_for("dictionary", letter=l) }}'>{{l}}</a>
+        </li>
+        
+        {% endfor %}
+    </ul>
+</body>
+</html>
