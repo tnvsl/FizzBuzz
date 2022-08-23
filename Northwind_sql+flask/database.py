@@ -27,4 +27,8 @@ def get_products(supplier_id):
     return query('''
         SELECT * FROM Product
         WHERE SupplierId = ?''', supplier_id)
-    
+
+def get_company_name(supplier_id):
+    return query('''
+        SELECT CompanyName FROM Supplier
+        WHERE Id = ?''', supplier_id)    

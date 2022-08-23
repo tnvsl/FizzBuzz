@@ -11,7 +11,8 @@ def suppliers():
 @app.route('/suppliers/<int:supplier_id>')
 def products(supplier_id):
     products = database.get_products(supplier_id)
-    return render_template('products.html', products=products)
+    company_name = database.get_company_name(supplier_id)
+    return render_template('products.html', products=products, company_name=company_name)
 
 if __name__ == '__main__':
     app.run()
