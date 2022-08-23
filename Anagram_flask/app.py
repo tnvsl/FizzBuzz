@@ -2,10 +2,12 @@ from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 @app.route("/")
-def start():
+def home():
     title = "What word should I check?"
 
-    return render_template('main.html', title=title)
+    scrambled_words = ['act', 'loop']
+
+    return render_template('main.html', title=title, scrambled_words=scrambled_words)
 
 @app.route("/words/<string:word>")
 def words(word):

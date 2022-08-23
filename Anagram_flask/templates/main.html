@@ -8,5 +8,13 @@
 </head>
 <body>
     <h1> {{title}} </h1>
+
+    <ul>
+        {% for w in scrambled_words %}
+        <li>
+             <a href="{{url_for('words', word=w) }}">{{w}}</a>
+        </li>
+        {% endfor %}
+   </ul>
 </body>
 </html>

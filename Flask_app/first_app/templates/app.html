@@ -18,4 +18,15 @@
 
     {% endif %}
 
+    <h2>Check out anagrams</h2>
+
+        <ul>
+            {% for word in scrambled_words %}
+            <li>
+                <a href='{{ url_for ("words", word=word) }}'>{{word}}</a>
+            </li>
+            
+            {% endfor %}
+        </ul>
+
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "main.html" %} 
+
+{% block container %}
+
+    {% if is_real %}
+
+        <h1>{{word}} is in the list</h1>
+
+    {% else %}
+    
+        <h1>Our word is: {{ word }} </h1>
+
+    {% endif %}
+
+{% endblock %}

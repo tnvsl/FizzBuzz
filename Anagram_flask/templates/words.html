@@ -10,8 +10,10 @@
     <h1>Anagrams for word {{ word }}</h1>
 
      <ul>
-          {% for w in l %}
-          <li>{{w}}</li>
+          {% for w in scrambled_words %}
+          <li>
+               <a href="{{url_for('words', word=w) }}">{{w}}</a>
+          </li>
           {% endfor %}
      </ul>
 </body>

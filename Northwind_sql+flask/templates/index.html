@@ -24,7 +24,7 @@
                 <tbody>
                     {% for fact in facts %}
                     <tr>
-                        <td>{{ fact['CompanyName'] }}</td>
+                        <td><a href="{{url_for('products', supplier_id=fact['Id'])}}">{{ fact['CompanyName'] }}</a></td>
                         <td>{{ fact['City'] }}</td>
                         <td>{{ fact['Country'] }}</td>
                     </tr>
