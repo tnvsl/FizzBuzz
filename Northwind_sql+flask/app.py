@@ -19,5 +19,11 @@ def categories():
     categories = database.get_categories()
     return render_template('categories.html', categories=categories)
 
+@app.route('/categories/<int:category_id>')
+def categoryproducts(category_id):
+    categoryproducts = database.get_category_products(category_id)
+    categoryname = database.get_category_name(category_id)
+    return render_template('categoryproducts.html', categoryproducts=categoryproducts, categoryname=categoryname)
+
 if __name__ == '__main__':
     app.run()

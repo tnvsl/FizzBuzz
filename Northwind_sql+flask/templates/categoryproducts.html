@@ -11,24 +11,23 @@
         <div class="container">
             <h1 class="title">
             
-                Food categories
+                {{ categoryname }}
                 
             </h1>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Number of products</th>
+                        <th>Supplier</th>
+                        <th>Product Name</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for category in categories %}
+                    {% for product in categoryproducts %}
                     <tr>
-                        <td><a href="{{url_for('categoryproducts', category_id=category['Id'])}}">{{ category['CategoryName'] }}</a></td>
-                        <td>{{ category['Description'] }}</td>
-                        <td>{{ category['ProductNumber'] }}</td>
+                        <td><a href="{{url_for('products', supplier_id=product['Id'])}}">{{ product['CompanyName'] }}</a></td>
+                        <td>{{ product['ProductName'] }}</td>
+                    
                     </tr>
                     {% endfor %}
                 </tbody>
