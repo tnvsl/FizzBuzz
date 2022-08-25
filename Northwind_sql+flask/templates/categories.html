@@ -11,28 +11,24 @@
         <div class="container">
             <h1 class="title">
             
-                {{ company_name }}
+                Food categories
                 
             </h1>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Supplier</th>
-                        <th>Product Name</th>
-                        <th>Quantity per unit</th>
-                        <th>Unit price</th>
-                        <th>Category Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Number of products</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for product in products %}
+                    {% for category in categories %}
                     <tr>
-                        <td>{{ product['CompanyName'] }}</td>
-                        <td>{{ product['ProductName'] }}</td>
-                        <td>{{ product['QuantityPerUnit'] }}</td>
-                        <td>{{ product['UnitPrice'] }}</td>
-                        <td>{{ product['CategoryName'] }}</td>
+                        <td>{{ category['CategoryName'] }}</td>
+                        <td>{{ category['Description'] }}</td>
+                        <td>{{ category['ProductNumber'] }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

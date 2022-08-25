@@ -20,15 +20,41 @@ def query(query_text, *param):
     return dicts
 
 def get_all_facts():
-    return query('''SELECT * FROM Supplier 
-        ORDER BY CompanyName''')
+    return query('''SELECT COUNT(Product.Id) AS ProductCount, Supplier.*
+                        FROM Product
+
+                        INNER JOIN Supplier
+                            ON Product.SupplierId = Supplier.Id
+                            
+                        GROUP BY CompanyName''')
 
 def get_products(supplier_id):
     return query('''
-        SELECT * FROM Product
-        WHERE SupplierId = ?''', supplier_id)
+                SELECT Product.ProductName, Product.QuantityPerUnit, Product.UnitPrice, Supplier.CompanyName, Category.CategoryName 
+                    FROM Product
+
+                    INNER JOIN Supplier
+                        ON Product.SupplierId = Supplier.Id
+                        
+                    INNER JOIN Category
+                        ON Product.CategoryId = Category.Id
+                        
+                    WHERE SupplierId = ?''', supplier_id)
 
 def get_company_name(supplier_id):
     return query('''
         SELECT CompanyName FROM Supplier
-        WHERE Id = ?''', supplier_id)    
+            WHERE Id = ?''', supplier_id)    
+
+def get_categories():
+    return query("""
+        SELECT Count(Product.ProductName) AS ProductNumber, Category.CategoryName, 
+            Category.Description 
+
+            FROM Product
+
+            INNER JOIN Category
+                ON Product.CategoryId = Category.Id
+
+            GROUP BY CategoryName
+    """)

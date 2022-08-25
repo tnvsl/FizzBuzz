@@ -14,5 +14,10 @@ def products(supplier_id):
     company_name = database.get_company_name(supplier_id)
     return render_template('products.html', products=products, company_name=company_name)
 
+@app.route('/categories')
+def categories():
+    categories = database.get_categories()
+    return render_template('categories.html', categories=categories)
+
 if __name__ == '__main__':
     app.run()
